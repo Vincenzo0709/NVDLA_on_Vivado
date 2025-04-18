@@ -530,5 +530,3 @@ nvdla_hw/outdir/nv_small/vmod/rams/synth/nv_ram_rwsthp_60x168.v
 nvdla_hw/outdir/nv_small/vmod/rams/synth/nv_ram_rwsthp_60x168_logic.v
 nvdla_hw/outdir/nv_small/vmod/rams/synth/nv_ram_rwsthp_80x72.v
 nvdla_hw/outdir/nv_small/vmod/rams/synth/nv_ram_rwsthp_80x72_logic.v
-nvdla_hw/nvdla_AXI_wrapper/NV_nvdla_AXI.sv
-nvdla_hw/nvdla_AXI_wrapper/NV_axilite2CSB.sv
