@@ -1,2 +1,3 @@
 units/*/rtl/
 xilinx/ips/*/build/
+*.xci

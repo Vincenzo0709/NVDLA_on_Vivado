@@ -13,7 +13,7 @@ include make/build.mk
 
 # Clean artifacts
 clean:
-	rm -rf ${XILINX_IPS_ROOT}/*/*/build
+	rm -rf ${XILINX_IPS_ROOT}/*/build
 	rm -rf ${XILINX_IPS_ROOT}/*.xci
 
 .PHONY: ips clean

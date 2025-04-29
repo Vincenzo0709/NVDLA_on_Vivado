@@ -15,6 +15,11 @@ units: $(addsuffix /rtl, ${IP_RTL_LIST})
 # Fetch rtl sources
 %/rtl:
 	cd $(UNITS_ROOT)/$* ; source fetch_sources.sh
+	@if [ -z "$$(ls -A ${UNITS_ROOT}/$@)" ]; then \
+		echo "[UNITS] Failed to fetch sources for $*" >&2; \
+		rm -rf rtl/; \
+		false; \
+	fi
 
 # Remove all RTL dirs
 clean:

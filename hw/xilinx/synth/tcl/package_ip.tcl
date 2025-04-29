@@ -15,6 +15,8 @@ set_property name $::env(IP_PRJ_NAME) [ipx::current_core]
 set_property core_revision 2 [ipx::current_core]
 ipx::update_checksums [ipx::current_core]
 ipx::check_integrity [ipx::current_core]
+ipx::associate_bus_interfaces -busif m_axi -clock dla_clk [ipx::current_core]
+ipx::associate_bus_interfaces -busif s_axilite -clock dla_clk [ipx::current_core]
 ipx::save_core [ipx::current_core]
 set_property  ip_repo_paths  $::env(IP_DIR)/build/$::env(IP_PRJ_NAME).srcs/sources_1/imports [current_project]
 update_ip_catalog

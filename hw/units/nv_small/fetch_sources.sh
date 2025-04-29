@@ -31,9 +31,16 @@ git clone ${GIT_URL} -b ${GIT_TAG} ${CLONE_DIR}
 
 # Copy all RTL files into rtl dir
 printf "${YELLOW}[FETCH_SOURCES] Copying all sources into rtl${NC}\n"
-for rtl_file in $(cat ${CONFIG_ROOT}/${CONFIG}/nvdla.flist) ; do
+for rtl_file in $(cat ${CONFIG_ROOT}/${CONFIG}/${CONFIG}.flist) ; do
     cp $rtl_file ./rtl
 done;
+
+# Some necessary modifies
+cd rtl/
+find . -type f -name "*.vlib" -exec bash -c 'mv "$0" "${0%.vlib}.v"' {} \;
+find . -type f -name "nv_ram_*" -exec sed -i 's/task arrangement (output integer arrangment_string\[\([0-9]*:[0-9]*\)\]);/task arrangement (output reg [\1] arrangment_string);/g' {} \;
+find . -type f -name "nv_ram_*" -exec sed -i 's/input string init_file;/input reg init_file;/g' {} \;
+cd ..
 
 # Delete the cloned repo
 printf "${YELLOW}[FETCH_SOURCES] Cleaning all artifacts${NC}\n"
