@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="nvdla_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="nvdla_tb" />
+            <top_module name="std" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="255.781 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,017.782 ns"></ZoomEndTime>
+      <Cursor1Time time="428.781 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="352"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="group" fp_name="group102">
+      <obj_property name="label">AXI VIP 0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/nvdla_tb/aclk">
+         <obj_property name="ElementShortName">aclk</obj_property>
+         <obj_property name="ObjectShortName">aclk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/aresetn">
+         <obj_property name="ElementShortName">aresetn</obj_property>
+         <obj_property name="ObjectShortName">aresetn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/dla_intr">
+         <obj_property name="ElementShortName">dla_intr</obj_property>
+         <obj_property name="ObjectShortName">dla_intr</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/addr">
+         <obj_property name="ElementShortName">addr[15:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/base_addr">
+         <obj_property name="ElementShortName">base_addr[15:0]</obj_property>
+         <obj_property name="ObjectShortName">base_addr[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/data">
+         <obj_property name="ElementShortName">data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/resp">
+         <obj_property name="ElementShortName">resp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">resp[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group312">
+      <obj_property name="label">AXILITE-CSB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group334">
+         <obj_property name="label">WRITE</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_ready_i">
+            <obj_property name="ElementShortName">m_csb_ready_i</obj_property>
+            <obj_property name="ObjectShortName">m_csb_ready_i</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_awvalid">
+            <obj_property name="ElementShortName">s_axilite_awvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_awvalid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_awready">
+            <obj_property name="ElementShortName">s_axilite_awready</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_awready</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_valid_o">
+            <obj_property name="ElementShortName">m_csb_valid_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_valid_o</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_awaddr">
+            <obj_property name="ElementShortName">s_axilite_awaddr[15:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_awaddr[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_addr_o">
+            <obj_property name="ElementShortName">m_csb_addr_o[15:0]</obj_property>
+            <obj_property name="ObjectShortName">m_csb_addr_o[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/we_w">
+            <obj_property name="ElementShortName">we_w</obj_property>
+            <obj_property name="ObjectShortName">we_w</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/addr_reg">
+            <obj_property name="ElementShortName">addr_reg[15:0]</obj_property>
+            <obj_property name="ObjectShortName">addr_reg[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_write_o">
+            <obj_property name="ElementShortName">m_csb_write_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_write_o</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_nposted_o">
+            <obj_property name="ElementShortName">m_csb_nposted_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_nposted_o</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_wvalid">
+            <obj_property name="ElementShortName">s_axilite_wvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_wvalid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_wready">
+            <obj_property name="ElementShortName">s_axilite_wready</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_wready</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_wdata">
+            <obj_property name="ElementShortName">s_axilite_wdata[31:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_wdata[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_wdat_o">
+            <obj_property name="ElementShortName">m_csb_wdat_o[31:0]</obj_property>
+            <obj_property name="ObjectShortName">m_csb_wdat_o[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_wstrb">
+            <obj_property name="ElementShortName">s_axilite_wstrb[3:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_wstrb[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_bvalid">
+            <obj_property name="ElementShortName">s_axilite_bvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_bvalid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_bready">
+            <obj_property name="ElementShortName">s_axilite_bready</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_bready</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_bresp">
+            <obj_property name="ElementShortName">s_axilite_bresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_bresp[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_wr_complete_i">
+            <obj_property name="ElementShortName">m_csb_wr_complete_i</obj_property>
+            <obj_property name="ObjectShortName">m_csb_wr_complete_i</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group103">
+         <obj_property name="label">READ</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_ready_i">
+            <obj_property name="ElementShortName">m_csb_ready_i</obj_property>
+            <obj_property name="ObjectShortName">m_csb_ready_i</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_arvalid">
+            <obj_property name="ElementShortName">s_axilite_arvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_arvalid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_arready">
+            <obj_property name="ElementShortName">s_axilite_arready</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_arready</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_valid_o">
+            <obj_property name="ElementShortName">m_csb_valid_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_valid_o</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_araddr">
+            <obj_property name="ElementShortName">s_axilite_araddr[15:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_araddr[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/we_r">
+            <obj_property name="ElementShortName">we_r</obj_property>
+            <obj_property name="ObjectShortName">we_r</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/addr_reg">
+            <obj_property name="ElementShortName">addr_reg[15:0]</obj_property>
+            <obj_property name="ObjectShortName">addr_reg[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_addr_o">
+            <obj_property name="ElementShortName">m_csb_addr_o[15:0]</obj_property>
+            <obj_property name="ObjectShortName">m_csb_addr_o[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_write_o">
+            <obj_property name="ElementShortName">m_csb_write_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_write_o</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_nposted_o">
+            <obj_property name="ElementShortName">m_csb_nposted_o</obj_property>
+            <obj_property name="ObjectShortName">m_csb_nposted_o</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_valid_i">
+            <obj_property name="ElementShortName">m_csb_valid_i</obj_property>
+            <obj_property name="ObjectShortName">m_csb_valid_i</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_rvalid">
+            <obj_property name="ElementShortName">s_axilite_rvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_rvalid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_rready">
+            <obj_property name="ElementShortName">s_axilite_rready</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_rready</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/m_csb_data_i">
+            <obj_property name="ElementShortName">m_csb_data_i[31:0]</obj_property>
+            <obj_property name="ObjectShortName">m_csb_data_i[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_rdata">
+            <obj_property name="ElementShortName">s_axilite_rdata[31:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_rdata[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/s_axilite_rresp">
+            <obj_property name="ElementShortName">s_axilite_rresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axilite_rresp[1:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group106">
+      <obj_property name="label">FSM STATES</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/next_state">
+         <obj_property name="ElementShortName">next_state[31:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/axilite2csb_u/curr_state">
+         <obj_property name="ElementShortName">curr_state[31:0]</obj_property>
+         <obj_property name="ObjectShortName">curr_state[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group101">
+      <obj_property name="label">FALCON2CSB FIFO RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/wr_req">
+         <obj_property name="ElementShortName">wr_req</obj_property>
+         <obj_property name="ObjectShortName">wr_req</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/wr_data">
+         <obj_property name="ElementShortName">wr_data[49:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_data[49:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/iwe">
+         <obj_property name="ElementShortName">iwe</obj_property>
+         <obj_property name="ObjectShortName">iwe</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/we">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/wa">
+         <obj_property name="ElementShortName">wa[1:0]</obj_property>
+         <obj_property name="ObjectShortName">wa[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/ram_ff0">
+         <obj_property name="ElementShortName">ram_ff0[49:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff0[49:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/ram_ff1">
+         <obj_property name="ElementShortName">ram_ff1[49:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff1[49:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/ram_ff2">
+         <obj_property name="ElementShortName">ram_ff2[49:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff2[49:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/ram_ff3">
+         <obj_property name="ElementShortName">ram_ff3[49:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff3[49:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/rd_req">
+         <obj_property name="ElementShortName">rd_req</obj_property>
+         <obj_property name="ObjectShortName">rd_req</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/ram/ra">
+         <obj_property name="ElementShortName">ra[1:0]</obj_property>
+         <obj_property name="ObjectShortName">ra[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/rd_data">
+         <obj_property name="ElementShortName">rd_data[49:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_data[49:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group238">
+      <obj_property name="label">CSB MASTER RESP SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group320">
+         <obj_property name="label">MCIF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/mcif2csb_resp_valid">
+            <obj_property name="ElementShortName">mcif2csb_resp_valid</obj_property>
+            <obj_property name="ObjectShortName">mcif2csb_resp_valid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_pvld">
+            <obj_property name="ElementShortName">core_resp_pvld</obj_property>
+            <obj_property name="ObjectShortName">core_resp_pvld</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_prdy">
+            <obj_property name="ElementShortName">core_resp_prdy</obj_property>
+            <obj_property name="ObjectShortName">core_resp_prdy</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/mcif2csb_resp_pd">
+            <obj_property name="ElementShortName">mcif2csb_resp_pd[33:0]</obj_property>
+            <obj_property name="ObjectShortName">mcif2csb_resp_pd[33:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_pd">
+            <obj_property name="ElementShortName">core_resp_pd[33:0]</obj_property>
+            <obj_property name="ObjectShortName">core_resp_pd[33:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group326">
+         <obj_property name="label">GLB</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/glb2csb_resp_valid">
+            <obj_property name="ElementShortName">glb2csb_resp_valid</obj_property>
+            <obj_property name="ObjectShortName">glb2csb_resp_valid</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_pvld">
+            <obj_property name="ElementShortName">core_resp_pvld</obj_property>
+            <obj_property name="ObjectShortName">core_resp_pvld</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_prdy">
+            <obj_property name="ElementShortName">core_resp_prdy</obj_property>
+            <obj_property name="ObjectShortName">core_resp_prdy</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/glb2csb_resp_pd">
+            <obj_property name="ElementShortName">glb2csb_resp_pd[33:0]</obj_property>
+            <obj_property name="ObjectShortName">glb2csb_resp_pd[33:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_resp_pd">
+            <obj_property name="ElementShortName">core_resp_pd[33:0]</obj_property>
+            <obj_property name="ObjectShortName">core_resp_pd[33:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/nvdla2csb_rresp_is_valid">
+         <obj_property name="ElementShortName">nvdla2csb_rresp_is_valid</obj_property>
+         <obj_property name="ObjectShortName">nvdla2csb_rresp_is_valid</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group104">
+      <obj_property name="label">CSB2FALCON_FIFO_RAM READ</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/wr_req">
+         <obj_property name="ElementShortName">wr_req</obj_property>
+         <obj_property name="ObjectShortName">wr_req</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/wr_data">
+         <obj_property name="ElementShortName">wr_data[33:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_data[33:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/iwe">
+         <obj_property name="ElementShortName">iwe</obj_property>
+         <obj_property name="ObjectShortName">iwe</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/we">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/wa">
+         <obj_property name="ElementShortName">wa[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wa[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/ram_ff0">
+         <obj_property name="ElementShortName">ram_ff0[33:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff0[33:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/ram_ff1">
+         <obj_property name="ElementShortName">ram_ff1[33:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_ff1[33:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/rd_req">
+         <obj_property name="ElementShortName">rd_req</obj_property>
+         <obj_property name="ObjectShortName">rd_req</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/ram/ra">
+         <obj_property name="ElementShortName">ra[0:0]</obj_property>
+         <obj_property name="ObjectShortName">ra[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/u_fifo_nvdla2csb/rd_data">
+         <obj_property name="ElementShortName">rd_data[33:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_data[33:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group105">
+      <obj_property name="label">CSB MASTER SELECT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group310">
+         <obj_property name="label">MCIF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_req_pd">
+            <obj_property name="ElementShortName">core_req_pd[49:0]</obj_property>
+            <obj_property name="ObjectShortName">core_req_pd[49:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/select_mcif">
+            <obj_property name="ElementShortName">select_mcif</obj_property>
+            <obj_property name="ObjectShortName">select_mcif</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/csb2mcif_req_pvld">
+            <obj_property name="ElementShortName">csb2mcif_req_pvld</obj_property>
+            <obj_property name="ObjectShortName">csb2mcif_req_pvld</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/csb2mcif_req_prdy">
+            <obj_property name="ElementShortName">csb2mcif_req_prdy</obj_property>
+            <obj_property name="ObjectShortName">csb2mcif_req_prdy</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/csb2mcif_req_pd">
+            <obj_property name="ElementShortName">csb2mcif_req_pd[62:0]</obj_property>
+            <obj_property name="ObjectShortName">csb2mcif_req_pd[62:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group311">
+         <obj_property name="label">GLB</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/core_req_pd">
+            <obj_property name="ElementShortName">core_req_pd[49:0]</obj_property>
+            <obj_property name="ObjectShortName">core_req_pd[49:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/select_glb">
+            <obj_property name="ElementShortName">select_glb</obj_property>
+            <obj_property name="ObjectShortName">select_glb</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/csb2glb_req_pvld">
+            <obj_property name="ElementShortName">csb2glb_req_pvld</obj_property>
+            <obj_property name="ObjectShortName">csb2glb_req_pvld</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_csb_master/csb2glb_req_prdy">
+            <obj_property name="ElementShortName">csb2glb_req_prdy</obj_property>
+            <obj_property name="ObjectShortName">csb2glb_req_prdy</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/csb2glb_req_pd">
+            <obj_property name="ElementShortName">csb2glb_req_pd[62:0]</obj_property>
+            <obj_property name="ObjectShortName">csb2glb_req_pd[62:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group353">
+      <obj_property name="label">CSB REGISTERS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="group" fp_name="group137">
+         <obj_property name="label">MCIF REGISTER</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="group306">
+            <obj_property name="label">WRITE</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/reg_wr_en">
+               <obj_property name="ElementShortName">reg_wr_en</obj_property>
+               <obj_property name="ObjectShortName">reg_wr_en</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/reg_offset">
+               <obj_property name="ElementShortName">reg_offset[11:0]</obj_property>
+               <obj_property name="ObjectShortName">reg_offset[11:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/reg_wr_data">
+               <obj_property name="ElementShortName">reg_wr_data[31:0]</obj_property>
+               <obj_property name="ObjectShortName">reg_wr_data[31:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/rsp_wr_vld">
+               <obj_property name="ElementShortName">rsp_wr_vld</obj_property>
+               <obj_property name="ObjectShortName">rsp_wr_vld</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="group307">
+            <obj_property name="label">READ</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/reg_offset">
+               <obj_property name="ElementShortName">reg_offset[11:0]</obj_property>
+               <obj_property name="ObjectShortName">reg_offset[11:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/reg_rd_data">
+               <obj_property name="ElementShortName">reg_rd_data[31:0]</obj_property>
+               <obj_property name="ObjectShortName">reg_rd_data[31:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/rsp_rd_vld">
+               <obj_property name="ElementShortName">rsp_rd_vld</obj_property>
+               <obj_property name="ObjectShortName">rsp_rd_vld</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="group253">
+            <obj_property name="label">REGISTERS AND ENABLES</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_outstanding_cnt_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_outstanding_cnt_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_outstanding_cnt_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_os_cnt">
+               <obj_property name="ElementShortName">wr_os_cnt[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_os_cnt[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_os_cnt">
+               <obj_property name="ElementShortName">rd_os_cnt[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_os_cnt[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_rd_weight_0_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_rd_weight_0_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_rd_weight_0_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_cdp">
+               <obj_property name="ElementShortName">rd_weight_cdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_cdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_pdp">
+               <obj_property name="ElementShortName">rd_weight_pdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_pdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_sdp">
+               <obj_property name="ElementShortName">rd_weight_sdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_sdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_bdma">
+               <obj_property name="ElementShortName">rd_weight_bdma[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_bdma[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_rd_weight_1_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_rd_weight_1_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_rd_weight_1_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_cdma_dat">
+               <obj_property name="ElementShortName">rd_weight_cdma_dat[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_cdma_dat[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_sdp_e">
+               <obj_property name="ElementShortName">rd_weight_sdp_e[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_sdp_e[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_sdp_n">
+               <obj_property name="ElementShortName">rd_weight_sdp_n[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_sdp_n[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_sdp_b">
+               <obj_property name="ElementShortName">rd_weight_sdp_b[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_sdp_b[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_rd_weight_2_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_rd_weight_2_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_rd_weight_2_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_rsv_0">
+               <obj_property name="ElementShortName">rd_weight_rsv_0[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_rsv_0[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_rsv_1">
+               <obj_property name="ElementShortName">rd_weight_rsv_1[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_rsv_1[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_rbk">
+               <obj_property name="ElementShortName">rd_weight_rbk[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_rbk[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/rd_weight_cdma_wt">
+               <obj_property name="ElementShortName">rd_weight_cdma_wt[7:0]</obj_property>
+               <obj_property name="ObjectShortName">rd_weight_cdma_wt[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_wr_weight_0_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_wr_weight_0_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_wr_weight_0_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_cdp">
+               <obj_property name="ElementShortName">wr_weight_cdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_cdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_pdp">
+               <obj_property name="ElementShortName">wr_weight_pdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_pdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_sdp">
+               <obj_property name="ElementShortName">wr_weight_sdp[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_sdp[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_bdma">
+               <obj_property name="ElementShortName">wr_weight_bdma[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_bdma[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/nvdla_mcif_cfg_wr_weight_1_0_wren">
+               <obj_property name="ElementShortName">nvdla_mcif_cfg_wr_weight_1_0_wren</obj_property>
+               <obj_property name="ObjectShortName">nvdla_mcif_cfg_wr_weight_1_0_wren</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_rsv_0">
+               <obj_property name="ElementShortName">wr_weight_rsv_0[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_rsv_0[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_rsv_1">
+               <obj_property name="ElementShortName">wr_weight_rsv_1[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_rsv_1[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_rsv_2">
+               <obj_property name="ElementShortName">wr_weight_rsv_2[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_rsv_2[7:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_mcif/u_csb/u_reg/wr_weight_rbk">
+               <obj_property name="ElementShortName">wr_weight_rbk[7:0]</obj_property>
+               <obj_property name="ObjectShortName">wr_weight_rbk[7:0]</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group451">
+         <obj_property name="label">GLB REGISTER</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="group456">
+            <obj_property name="label">GLB</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="group328">
+               <obj_property name="label">WRITE</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/reg_wr_en">
+                  <obj_property name="ElementShortName">reg_wr_en</obj_property>
+                  <obj_property name="ObjectShortName">reg_wr_en</obj_property>
+               </wvobject>
+               <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/reg_offset_wr">
+                  <obj_property name="ElementShortName">reg_offset_wr[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">reg_offset_wr[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/reg_wr_data">
+                  <obj_property name="ElementShortName">reg_wr_data[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">reg_wr_data[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/rsp_wr_vld">
+                  <obj_property name="ElementShortName">rsp_wr_vld</obj_property>
+                  <obj_property name="ObjectShortName">rsp_wr_vld</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="group331">
+               <obj_property name="label">READ</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/reg_offset_rd_int">
+                  <obj_property name="ElementShortName">reg_offset_rd_int[11:0]</obj_property>
+                  <obj_property name="ObjectShortName">reg_offset_rd_int[11:0]</obj_property>
+               </wvobject>
+               <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/reg_rd_data">
+                  <obj_property name="ElementShortName">reg_rd_data[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">reg_rd_data[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/rsp_rd_vld">
+                  <obj_property name="ElementShortName">rsp_rd_vld</obj_property>
+                  <obj_property name="ObjectShortName">rsp_rd_vld</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="group254">
+               <obj_property name="label">REGISTERS</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/nvdla_glb_s_intr_mask_0_wren">
+                  <obj_property name="ElementShortName">nvdla_glb_s_intr_mask_0_wren</obj_property>
+                  <obj_property name="ObjectShortName">nvdla_glb_s_intr_mask_0_wren</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cacc_done_mask1">
+                  <obj_property name="ElementShortName">cacc_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">cacc_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cacc_done_mask0">
+                  <obj_property name="ElementShortName">cacc_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">cacc_done_mask0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdma_wt_done_mask1">
+                  <obj_property name="ElementShortName">cdma_wt_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">cdma_wt_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdma_wt_done_mask0">
+                  <obj_property name="ElementShortName">cdma_wt_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">cdma_wt_done_mask0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdma_dat_done_mask1">
+                  <obj_property name="ElementShortName">cdma_dat_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">cdma_dat_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdma_dat_done_mask0">
+                  <obj_property name="ElementShortName">cdma_dat_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">cdma_dat_done_mask0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/pdp_done_mask1">
+                  <obj_property name="ElementShortName">pdp_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">pdp_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/pdp_done_mask0">
+                  <obj_property name="ElementShortName">pdp_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">pdp_done_mask0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdp_done_mask1">
+                  <obj_property name="ElementShortName">cdp_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">cdp_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/cdp_done_mask0">
+                  <obj_property name="ElementShortName">cdp_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">cdp_done_mask0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/sdp_done_mask1">
+                  <obj_property name="ElementShortName">sdp_done_mask1</obj_property>
+                  <obj_property name="ObjectShortName">sdp_done_mask1</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_csb/u_reg/sdp_done_mask0">
+                  <obj_property name="ElementShortName">sdp_done_mask0</obj_property>
+                  <obj_property name="ObjectShortName">sdp_done_mask0</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="group472">
+            <obj_property name="label">GLB IC</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/done_set">
+               <obj_property name="ElementShortName">done_set[15:0]</obj_property>
+               <obj_property name="ObjectShortName">done_set[15:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/done_wr_clr">
+               <obj_property name="ElementShortName">done_wr_clr[15:0]</obj_property>
+               <obj_property name="ObjectShortName">done_wr_clr[15:0]</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cacc_done_status1">
+               <obj_property name="ElementShortName">cacc_done_status1</obj_property>
+               <obj_property name="ObjectShortName">cacc_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cacc_done_status0">
+               <obj_property name="ElementShortName">cacc_done_status0</obj_property>
+               <obj_property name="ObjectShortName">cacc_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdma_wt_done_status1">
+               <obj_property name="ElementShortName">cdma_wt_done_status1</obj_property>
+               <obj_property name="ObjectShortName">cdma_wt_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdma_wt_done_status0">
+               <obj_property name="ElementShortName">cdma_wt_done_status0</obj_property>
+               <obj_property name="ObjectShortName">cdma_wt_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdma_dat_done_status1">
+               <obj_property name="ElementShortName">cdma_dat_done_status1</obj_property>
+               <obj_property name="ObjectShortName">cdma_dat_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdma_dat_done_status0">
+               <obj_property name="ElementShortName">cdma_dat_done_status0</obj_property>
+               <obj_property name="ObjectShortName">cdma_dat_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/pdp_done_status1">
+               <obj_property name="ElementShortName">pdp_done_status1</obj_property>
+               <obj_property name="ObjectShortName">pdp_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/pdp_done_status0">
+               <obj_property name="ElementShortName">pdp_done_status0</obj_property>
+               <obj_property name="ObjectShortName">pdp_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdp_done_status1">
+               <obj_property name="ElementShortName">cdp_done_status1</obj_property>
+               <obj_property name="ObjectShortName">cdp_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/cdp_done_status0">
+               <obj_property name="ElementShortName">cdp_done_status0</obj_property>
+               <obj_property name="ObjectShortName">cdp_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/sdp_done_status1">
+               <obj_property name="ElementShortName">sdp_done_status1</obj_property>
+               <obj_property name="ObjectShortName">sdp_done_status1</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/sdp_done_status0">
+               <obj_property name="ElementShortName">sdp_done_status0</obj_property>
+               <obj_property name="ObjectShortName">sdp_done_status0</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/nvdla_tb/UUT/nvdla_sim_i/nv_small_prj_0/inst/nvdla_u/u_partition_o/u_NV_NVDLA_glb/u_ic/core_intr">
+               <obj_property name="ElementShortName">core_intr</obj_property>
+               <obj_property name="ObjectShortName">core_intr</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

@@ -10,12 +10,12 @@ IP_RTL_LIST=$(shell basename $(UNITS_ROOT)/*/)
 # Targets
 all: units
 
-units: $(addsuffix /rtl, ${IP_RTL_LIST})
+units: $(addsuffix /rtl, $(IP_RTL_LIST))
 
 # Fetch rtl sources
 %/rtl:
 	cd $(UNITS_ROOT)/$* ; source fetch_sources.sh
-	@if [ -z "$$(ls -A ${UNITS_ROOT}/$@)" ]; then \
+	@if [ -z "$$(ls -A $(UNITS_ROOT)/$@)" ]; then \
 		echo "[UNITS] Failed to fetch sources for $*" >&2; \
 		rm -rf rtl/; \
 		false; \
@@ -23,6 +23,6 @@ units: $(addsuffix /rtl, ${IP_RTL_LIST})
 
 # Remove all RTL dirs
 clean:
-	rm -rf ${UNITS_ROOT}/*/rtl
+	rm -rf $(UNITS_ROOT)/*/rtl
 
 .PHONY: units clean

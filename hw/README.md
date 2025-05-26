@@ -1,14 +1,17 @@
-### NVDLA_on_Vivado hw project
+# Hw directory
 This is the hw directory.
-In units/ there are rtl sources, in xilinx/ there is the full Vivado project
+In units/ there are rtl sources, in xilinx/ there is the full Vivado project.
 
 hw
 ├── units
-│   ├── nvdla
-│   └── top_wrapper
+│   └── nv_small
+        ├── rtl (gitignored)
+│       └── wrapper
 └── xilinx
     ├── ips
-    │   └── nvdla
+    │   └── nv_small_
     ├── rtl
     ├── tcl
     └── synth
+        ├──
+        └──

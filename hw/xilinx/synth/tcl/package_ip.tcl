@@ -1,10 +1,14 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
-# Description: Package Vivado IP from $src_file_list over $top_module, from an opened project
+# Description: This script packages nvdla as Vivado IP by adding $src_file_list under $top_module, 
+#              from the previously opened project (in pre_config.tcl)
 
 # Add files to project
 import_files -norecurse -fileset [current_fileset] $src_file_list
-update_compile_order -fileset sources_1
+update_compile_order -fileset [current_fileset]
 set_property top ${top_module} [current_fileset]
+
+# import_files -norecurse -fileset sim_1 $src_file_list
+# update_compile_order -fileset sim_1
 
 # Suppress: WARNING: [IP_Flow 19-3833] Unreferenced file from the top module is not packaged: <...>.
 set_msg_config -id {[IP_Flow 19-3833]} -suppress
@@ -12,13 +16,15 @@ set_msg_config -id {[IP_Flow 19-3833]} -suppress
 # Package the IP and update the catalog
 ipx::package_project -root_dir $::env(IP_DIR)/build/$::env(IP_PRJ_NAME).srcs/sources_1/imports -vendor user.org -library user -taxonomy /UserIP
 set_property name $::env(IP_PRJ_NAME) [ipx::current_core]
-set_property core_revision 2 [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
 ipx::update_checksums [ipx::current_core]
 ipx::check_integrity [ipx::current_core]
 ipx::associate_bus_interfaces -busif m_axi -clock dla_clk [ipx::current_core]
 ipx::associate_bus_interfaces -busif s_axilite -clock dla_clk [ipx::current_core]
 ipx::save_core [ipx::current_core]
-set_property  ip_repo_paths  $::env(IP_DIR)/build/$::env(IP_PRJ_NAME).srcs/sources_1/imports [current_project]
+
+# Add the IP to the catalog
+set_property ip_repo_paths $::env(IP_DIR)/build/$::env(IP_PRJ_NAME).srcs/sources_1/imports [current_project]
 update_ip_catalog
 
 # Import IP into the project

@@ -11,9 +11,17 @@ all: ips
 # Build makefile for ips and bitstream
 include make/build.mk
 
-# Clean artifacts
-clean:
-	rm -rf ${XILINX_IPS_ROOT}/*/build
-	rm -rf ${XILINX_IPS_ROOT}/*.xci
+# Makefile to prepare block design for simulation and run simulation
+include make/simulation.mk
 
-.PHONY: ips clean
+# Clean artifacts
+clean: clean_ips clean_sim
+
+clean_ips:
+	rm -rf $(XILINX_IPS_ROOT)/*.xci
+	rm -rf $(XILINX_IPS_ROOT)/*/build
+
+clean_sim:
+	rm -rf $(XILINX_SIM_ROOT)/*/build
+
+.PHONY: ips clean clean_ips clean_sim

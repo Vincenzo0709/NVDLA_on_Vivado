@@ -35,11 +35,13 @@ for rtl_file in $(cat ${CONFIG_ROOT}/${CONFIG}/${CONFIG}.flist) ; do
     cp $rtl_file ./rtl
 done;
 
-# Some necessary modifies
+## Some necessary modifies
 cd rtl/
+# Vivado seems to not recognise .vlib sources
 find . -type f -name "*.vlib" -exec bash -c 'mv "$0" "${0%.vlib}.v"' {} \;
-find . -type f -name "nv_ram_*" -exec sed -i 's/task arrangement (output integer arrangment_string\[\([0-9]*:[0-9]*\)\]);/task arrangement (output reg [\1] arrangment_string);/g' {} \;
-find . -type f -name "nv_ram_*" -exec sed -i 's/input string init_file;/input reg init_file;/g' {} \;
+# find . -type f -name "nv_ram_*" -exec sed -i 's/task arrangement (output integer arrangment_string\[\([0-9]*:[0-9]*\)\]);/task arrangement (output reg [\1] arrangment_string);/g' {} \;
+# find . -type f -name "nv_ram_*" -exec sed -i 's/input string init_file;/input reg init_file;/g' {} \;
+# sed -i 's/modName = int.*($sformatf *("\%m"));/$sformat(modName, "%m");/' RANDFUNC.v
 cd ..
 
 # Delete the cloned repo

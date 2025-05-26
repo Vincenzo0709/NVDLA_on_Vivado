@@ -19,23 +19,23 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 import axi_vip_pkg::*;
-import nvdla_axi_vip_0_0_pkg::*;
-import nvdla_axi_vip_1_0_pkg::*;
+import nvdla_sim_axi_vip_0_0_pkg::*;
+import nvdla_sim_axi_vip_1_0_pkg::*;
 
 module nvdla_tb();
 
 bit aclk = 0;
-bit aresetn = 1;
+bit aresetn = 0;
 bit dla_intr;
 bit [15:0] addr;
 bit [15:0] base_addr = 16'h0000;
 bit [31:0] data;
 xil_axi_resp_t resp;
 
-nvdla_wrapper UUT(
+nvdla_sim_wrapper UUT(
     .aclk_0 (aclk),
     .aresetn_0 (aresetn),
-    .dla_intr_0 (dla_intr)
+    .dla_intr_o_0 (dla_intr)
 );
 
 // Generate the clock : 50 MHz    
@@ -59,28 +59,37 @@ end
 //////////////////////////////////////////////////////////////////////////////////
 //
 // Step 3 - Declare the agent for the master VIP
-nvdla_axi_vip_0_0_mst_t      master_agent;
+nvdla_sim_axi_vip_0_0_mst_t      master_agent;
 
 //
 initial begin    
 
     // Step 4 - Create a new agent
-    master_agent = new("master vip agent",UUT.nvdla_i.axi_vip_0.inst.IF);
+    master_agent = new("master vip agent",UUT.nvdla_sim_i.axi_vip_0.inst.IF);
     
     // Step 5 - Start the agent
     master_agent.start_master();
     
     //Wait for the reset to be released
     wait (aresetn == 1'b1);
-	#200ns
+
+    // Send a write burst
+    // #500ns
+    // addr = (16'h2000 >> 2);
+    // data = 15;
+    // master_agent.AXI4LITE_WRITE_BURST(base_addr + addr, 0, data, resp);
+
+    // // #100ns
+    // // addr = (16'h1004 >> 2);
+    // // data = 15;
+    // // master_agent.AXI4LITE_WRITE_BURST(base_addr + addr, 0, data, resp);
     
-    //Send a write burst
-    #500ns
-    addr = 2*4096;
-    data = 1;
-    master_agent.AXI4LITE_WRITE_BURST(base_addr + addr, 0, data, resp);
-    
-    #1000ns
+    // #500ns
+    // data = 0;
+
+    // Send a read burst
+    #100ns
+    addr = (16'h2004 >> 2);
     master_agent.AXI4LITE_READ_BURST(base_addr + addr, 0, data, resp);
 
 end

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ROOT_DIR=$( dirname $( realpath $BASH_SOURCE[0]} ) )
+export ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
 
 # Check if Vivado is in path
 if ! command -v vivado &> /dev/null; then
@@ -11,28 +11,26 @@ fi
 # Configuration root directory
 export CONFIG_ROOT=${ROOT_DIR}/config
 
-# Hw directories
+# Hardware directories
 export HW_ROOT=${ROOT_DIR}/hw
 export UNITS_ROOT=${HW_ROOT}/units
 export XILINX_ROOT=${HW_ROOT}/xilinx
 
-# Synthesis
+# Ips directories
+export XILINX_RTL_ROOT=${XILINX_ROOT}/rtl
+export XILINX_IPS_ROOT=${XILINX_ROOT}/ips
+
+# Synthesis directories
 export XILINX_SYNTH_ROOT=${XILINX_ROOT}/synth
 export XILINX_SYNTH_TCL_ROOT=${XILINX_SYNTH_ROOT}/tcl
 export XILINX_SYNTH_XDC_ROOT=${XILINX_SYNTH_ROOT}/constraints
 
-# Ips directories
-export XILINX_RTL_ROOT=${XILINX_ROOT}/rtl
-export XILINX_SCRIPTS_ROOT=${XILINX_ROOT}/scripts
-export XILINX_IPS_ROOT=${XILINX_ROOT}/ips
+# Simulation directories
+export XILINX_SIM_ROOT=${XILINX_ROOT}/sim
+export XILINX_SIM_TCL_ROOT=${XILINX_SIM_ROOT}/tcl
 
-# Sw directory
+# Software directories
 export SW_ROOT=${ROOT_DIR}/sw
-
-# Project for Vivado
-export XILINX_PROJECT_NAME=nvdla
-export IP_NAME=nvdla
-export XILINX_PROJECT_NAME=nvdla
 
 # Configuration selection
 CONFIG=$1

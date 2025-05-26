@@ -1,3 +1,4 @@
 units/*/rtl/
 xilinx/ips/*/build/
+xilinx/sim/*/build/
 *.xci
