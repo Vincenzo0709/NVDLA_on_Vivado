@@ -1,6 +1,28 @@
 // Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 // Description:
-//    This module links NVDLA_wrapper and csb2nvdla interface converter up
+//    This module links up NVDLA_wrapper and csb2nvdla interface converter
+//
+//      ┌───────────────────────────────────────────────────────────────────────────────────────────┐      
+//      │                                     NVDLA_wrapper                                         │     
+//      │                                                                                           │
+//      │                                                                                           │
+//      │  AXI-LITE   ┌───────────────────┐          CSB          ┌───────────────────┐    AXI      │
+//  ====│===========> │    axilite2csb    │ <===================> │    NV_nvdla       │ ============│===>                              │
+//      │             │                   │                       │                   │             │
+//      │     AW      │                   │    -----valid----->   │                   │     AW      │
+//      │   =====>    │                   │    <----ready------   │                   │   =====>    │
+//      │     AR      │    (AXI-LITE      │    -----wdat------>   │                   │     AR      │
+//      │   =====>    │        to         │    -----addr------>   │      NVIDIA       │   =====>    │
+//      │     W       │     NVDLA CSB     │    -----write----->   │    accelerator    │     W       │
+//      │   =====>    │     interface     │    ---n_posted---->   │                   │   =====>    │
+//      │     R       │     converter)    │    <-----valid-----   │                   │     R       │
+//      │   =====>    │                   │    <-----data------   │                   │   =====>    │
+//      │     B       │                   │    <--wr_complete--   │                   │     B       │
+//      │   =====>    │                   │                       │                   │   =====>    │
+//      │             │                   │                       │                   │             │
+//      │             └───────────────────┘                       └───────────────────┘             │
+//      │                                                                                           │
+//      └───────────────────────────────────────────────────────────────────────────────────────────┘
 
 module NVDLA_wrapper #(
 
@@ -83,7 +105,7 @@ module NVDLA_wrapper #(
 
 );
 
-// Signals connecting NVDLA CSB and NVDLA_wrapper interfaces
+// Signals connecting csb2nvdla -> NVDLA interfaces
 logic m_csb_valid_o;
 logic m_csb_ready;
 logic [AXILITE_ADDR_WIDTH-1:0] m_csb_addr;
@@ -109,7 +131,7 @@ NV_nvdla nvdla_u (
    // Interrupt signal
    .dla_intr                                 (dla_intr),
 
-   // CSB NVDLA slave interface (csb2nvdla -> CSB -> NVDLA)
+   // CSB NVDLA slave interface (csb2nvdla -> NVDLA)
    .csb2nvdla_valid                          (m_csb_valid_o),
    .csb2nvdla_ready                          (m_csb_ready),
    .csb2nvdla_addr                           (m_csb_addr),
@@ -172,7 +194,7 @@ axilite2csb #(
 
    // Interrupt signal doesn't pass-through this adapter
 
-   // AXILITE slave interface to NVDLA (-> NVDLA_wrapper -> csb2nvdla)
+   // AXILITE slave interface to NVDLA (NVDLA_wrapper -> csb2nvdla)
    // AW
    .s_axilite_awvalid                        (s_axilite_awvalid),
    .s_axilite_awready                        (s_axilite_awready),
@@ -198,7 +220,7 @@ axilite2csb #(
    .s_axilite_rdata                          (s_axilite_rdata),
    .s_axilite_rresp                          (s_axilite_rresp),
 
-   // NVDLA CSB slave interface to NVDLA (-> csb2nvdla -> CSB -> NVDLA)
+   // NVDLA CSB slave interface to NVDLA (csb2nvdla -> NVDLA)
    .m_csb_valid_o                            (m_csb_valid_o),
    .m_csb_ready_i                            (m_csb_ready),
    .m_csb_addr_o                             (m_csb_addr),

@@ -18,30 +18,33 @@ and the following tools version:
 | Vivado    | 2022.2             |
 
 ## NVDLA Configurations
-It comes in one configuration:
+It comes in one configuration (so far):
 
-| Configuration   | References         | Description                                    |
-|-----------------|--------------------|------------------------------------------------|
-| nv_small        | [nv_small](https://nvdla.org/primer.html)| The least complex, with |
+| Configuration   | References         | Description                                            |
+|-----------------|--------------------|--------------------------------------------------------|
+| nv_small        | [nv_small](https://nvdla.org/primer.html)| The least complex, with 64 INT8 MAC, no SRAM and no Microcontroller |
 
 
 ## Build Instructions
 - First, setup the environment with:
 
-    source settings.sh <CONFIG> <BOARD>
+    source settings.sh \<CONFIG\> \<BOARD\>
 
 - Then build with:
 
     make all
+
     make clean
 
 The defaults are "nv_small" and "zcu102".
+See [units](hw/units/README.md) or [xilinx](hw/xilinx/README.md) for details, or if you want to build step by step.
 
 ## Simulation
 There is also a simulation target.
 
     make sim
+
     make clean_sim
 
-It builds a new block design with NVDLA accelerator and executes a predefined testbench.
-See [Simulation] (hw/xilinx/sim/Readme.md) for details.
+It builds a new block design with NVDLA accelerator and executes a predefined testbench; then opens waveforms in Vivado.
+See [Simulation](hw/xilinx/sim/README.md) for details.

@@ -45,7 +45,7 @@ module axilite2csb #(
    output logic [DATA_WIDTH-1:0] s_axilite_rdata,
    output logic [RESP_WIDTH-1:0] s_axilite_rresp,
 
-   // CSB master interface to NVDLA (csb2nvdla -> CSB -> NVDLA)
+   // CSB master interface to NVDLA (csb2nvdla -> NVDLA)
    output logic m_csb_valid_o,
    input logic m_csb_ready_i,
    output logic [ADDR_WIDTH-1:0] m_csb_addr_o,
@@ -58,36 +58,34 @@ module axilite2csb #(
 
 );
 
-// FSM for CSB protocol
-typedef enum {
-   IDLE,          // reset state
-   READ_REQ,      // read request is managed
-   WRITE_REQ,     // write request is managed
-   READ_COMP,     // read is completed
-   WRITE_COMP,    // write is completed
-   READ_RESP,     // read response is sent
-   WRITE_RESP     // write response is sent
-} state_t;
+// Pending input signals (master -> slave)
+// - s_axilite_awprot
+// - s_axilite_arprot
+// - s_axilite_wstrb
+// They are not supported by NVDLA DDR interface
 
-state_t curr_state = IDLE;
-state_t next_state;
-
-/* Pending input signals
-- s_axilite_awprot
-- s_axilite_arprot
-- s_axilite_wstrb
-*/
+// ---------- Address register -----------------------
 
 // According to AXI write protocol, address is valid only during address write handshake
-// so FSM needs to store that value, at the beginning of WRITE_REQ state, in order to
-// send it after, when wvalid and wready are asserted and write packet is formed.
-//                            __________
-// dla_clk ----------------> |          |
-// we ---------------------> |          |
-//                           | addr_reg | -------> m_csb_addr_o
-// s_axilite_awaddr -------> |          |
-//                           |__________|
+// so FSM needs to store that value, in order to send it after, to when write/read packet
+// is formed.
+// We are going to use a flip-flop for that purpose.
 //
+//                           ┌────────────────┐
+// dla_clk ----------------> │                │
+//                           │                │
+// we_r -------------------> │                │
+// we_w -------------------> │    addr_reg    │ -------> m_csb_addr_o
+//                           │                │
+// s_axilite_awaddr =======> │                │
+// s_axilite_araddr =======> │                │
+//                           └────────────────┘
+//
+// Two enable signals, we_r and we_w, are used to select respectively between read or
+// write addresses, depending on which transaction is starting (AW or AR in AXI-LITE).
+// The output signal addr_o to NVDLA is continuously assigned the register content,
+// and cannot be assigned elsewhere, to not have conflicting syntax.
+
 
 logic we_r;
 logic we_w;
@@ -113,9 +111,26 @@ always_ff @(posedge dla_clk or negedge dla_resetn) begin
 
    end
 
-end
+end // Address register
 
-// Sequential block
+
+// ---------- FSM ----------------------------------
+
+// FSM states
+typedef enum {
+   IDLE,          // reset state
+   READ_REQ,      // read request is managed
+   WRITE_REQ,     // write request is managed
+   READ_COMP,     // read is completed
+   WRITE_COMP,    // write is completed
+   READ_RESP,     // read response is sent
+   WRITE_RESP     // write response is sent
+} state_t;
+
+state_t curr_state = IDLE;
+state_t next_state;
+
+// FSM Sequential block
 always_ff @(posedge dla_clk or negedge dla_resetn) begin
 
    if (!dla_resetn) begin
@@ -128,9 +143,9 @@ always_ff @(posedge dla_clk or negedge dla_resetn) begin
 
    end
 
-end
+end // FSM Sequential block
 
-// Combinatorial block
+// FSM Combinatorial block
 always_comb begin
 
    // Default AXI output signals (all zeroed as in reset state)
@@ -144,12 +159,11 @@ always_comb begin
    s_axilite_rvalid = 1'h0;
 
    // Default CSB output signals (all zeroed as in reset state) except m_csb_addr_o
-   // which is permanently associated to addr_reg and must not be set to avoid conflicts
+   //    which is continuously assigned to addr_reg and must not be set to avoid conflicts
    m_csb_valid_o = 1'h0;
    m_csb_wdat_o = 'h0;
    m_csb_write_o = 1'h0;
    m_csb_nposted_o = 1'h0;
-
 
    // Address enable signals to multiplex awaddr and araddr towards addr_reg
    we_w = 1'h0;
@@ -203,7 +217,7 @@ always_comb begin
       // otherwise NVDLA would not store the right write request packet in its write requests fifo
       //    - nposted (= 1 for writes, = 0 for reads)
       //    - write (= 1 for writes, = 0 for reads)
-      //    - wdat (data to be written, not importanto for reads)
+      //    - wdat (data to be written, not important for reads)
       //    - addr (managed through addr_reg)
 
       // Read request is accepted and can be managed
@@ -221,17 +235,14 @@ always_comb begin
       // Write request is accepted and can be managed
       WRITE_REQ: begin
 
-            // CSB write protocol:
-            //    nposted = 1 means NVDLA must send write completion,
-            //    then is deasserted during the following clock cycle
-            m_csb_nposted_o = 1'h1;
+         // CSB write protocol:
+         //    nposted = 1 means NVDLA must send write completion
+         //    write = 1 means a write request
+         m_csb_nposted_o = 1'h1;
+         m_csb_write_o = 1'h1;
 
-            // CSB write protocol
-            //    write = 1 means a write request
-            m_csb_write_o = 1'h1;
-
-            // Master wdata signal is passed-through to NVDLA
-            m_csb_wdat_o = s_axilite_wdata;                                   // wdata --------> wdat
+         // Master wdata signal is passed-through to NVDLA
+         m_csb_wdat_o = s_axilite_wdata;                                   // wdata --------> wdat
       
          // When master asserts wvalid, write operation can start
          if (s_axilite_wvalid) begin
@@ -254,7 +265,7 @@ always_comb begin
       // Read operation is completed
       READ_COMP: begin
 
-         // Read operation can start if:
+         // Read operation can end if:
          //    - master is waiting for data (rready)
          //    - NVDLA provides the data (valid_i)
          if (s_axilite_rready && m_csb_valid_i) begin
@@ -276,7 +287,7 @@ always_comb begin
       // Write operation is completed
       WRITE_COMP: begin
 
-         // When NVDLA asserts wr_complete, it means write operation has completed
+         // When NVDLA asserts wr_complete, it means write operation has ended
          if (m_csb_wr_complete_i) begin
 
             // AXI-LITE write response protocol: 
@@ -312,7 +323,7 @@ always_comb begin
             
          next_state = IDLE;
 
-      end
+      end // READ_RESP
 
       default: next_state = IDLE;
 
@@ -320,4 +331,4 @@ always_comb begin
 
 end // Combinatorial block
 
-endmodule // axilite2csb module
+endmodule // axilite2csb
