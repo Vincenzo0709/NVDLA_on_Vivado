@@ -1,6 +1,71 @@
 // Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 // Description:
 //    This module wraps an FSM that converts standard slave AXI-LITE interface to NVDLA CSB interface
+//
+//      ┌───────────────────────────────────────────────────────────────────────┐      
+//      │                             axilite2csb                               │
+//      │                                                                       │
+//      │  AXI-LITE                                                     CSB     │       
+//  ====│==============>                                          <=============│====>
+//      │                                                                       │
+//      │                           ┌────────────────┐                          │
+//      │ ----s_axilite_awaddr----> │                │                          │
+//      │                           │   addr_reg     │ -----m_csb_addr_o------> │
+//      │ ----s_axilite_araddr----> │                │                          │
+//      │                           └────────────────┘                          │
+//      │                                ▲      ▲                               │
+//      │                           we_r │      │ we_w                          │
+//      │                                │      │                               │
+//      │                           ┌────────────────┐                          │
+//      │ ----s_axilite_arvalid---> │                │                          │
+//      │ <---s_axilite_arready---- │      FSM       │                          │
+//      │                           │   IDLE state   │ <-----m_csb_ready_i----- │
+//      │ ----s_axilite_awvalid---> │                │                          │
+//      │ <---s_axilite_awready---- │                │                          │
+//      │                           └────────────────┘                          │
+//      │                                                                       │
+//      │ ----s_axilite_wdata-----> -----------------> ------m_csb_wdat_o-----> │
+//      │                                                                       │
+//      | <---s_axilite_rdata------ <----------------- <-----m_csb_data_i------ │
+//      │                                                                       │
+//      │                           ┌────────────────┐                          │
+//      │                           │                │                          │
+//      │ ----s_axilite_wvalid----> │      FSM       │ -----m_csb_write_o-----> │
+//      │                           │    WRITE_REQ   │ ----m_csb_nposted_o----> │
+//      │ <----s_axilite_wready---- │     state      │                          │
+//      │                           │                │ -+                       │
+//      │                           └────────────────┘  |                       │
+//      │                                               |                       │
+//      │                           ┌────────────────┐  |                       │
+//      │                           │      FSM       │  |                       │
+//      │                           │    READ_REQ    │ -+----m_csb_valid_o----> │
+//      │                           │     state      │                          │
+//      │                           └────────────────┘                          │
+//      │                                                                       │
+//      │                           ┌────────────────┐                          │
+//      │ <----s_axilite_rvalid---- │      FSM       │                          │
+//      │                           │   READ_COMP    │ <-----m_csb_valid_i----- │
+//      │ -----s_axilite_rready---> │     state      │                          │
+//      │                           └────────────────┘                          │
+//      │                                                                       │
+//      │                           ┌────────────────┐                          │
+//      │ <----s_axilite_bvalid---- │      FSM       │                          │
+//      │                           │   WRITE_COMP   │ <--m_csb_wr_complete_i-- │
+//      │ -----s_axilite_bready---> │     state      │                          │
+//      │                           └────────────────┘                          │
+//      │                                                                       │
+//      │                           ┌────────────────┐                          │
+//      │ <----s_axilite_bresp----- │      FSM       │                          │
+//      │                           │   READ_RESP/   │                          │
+//      │ <----s_axilite_rresp----- │   WRITE_RESP   │                          │
+//      │                           │     states     │                          │
+//      │                           └────────────────┘                          │
+//      │                                                                       │
+//      │ -----s_axilite_awprot---> \\                                          │
+//      │ -----s_axilite_arprot---> \\                                          │
+//      │ -----s_axilite_wstrb----> \\                                          │
+//      │                                                                       │
+//      └───────────────────────────────────────────────────────────────────────┘
 
 module axilite2csb #(
 
@@ -301,6 +366,17 @@ always_comb begin
       end // WRITE_COMP
 
       // After read occurred, the AXI-LITE slave sends the response
+      READ_RESP: begin
+
+         // AXI-LITE read data protocol:
+         //    during read_data hanshake slave sends rresp
+         //    rresp = 00 (OKAY) by default
+            
+         next_state = IDLE;
+
+      end // READ_RESP
+
+      // After read occurred, the AXI-LITE slave sends the response
       WRITE_RESP: begin
 
          // AXI-LITE write response protocol:
@@ -313,17 +389,6 @@ always_comb begin
          end
 
       end // WRITE_RESP
-
-      // After read occurred, the AXI-LITE slave sends the response
-      READ_RESP: begin
-
-         // AXI-LITE read data protocol:
-         //    during read_data hanshake slave sends rresp
-         //    rresp = 00 (OKAY) by default
-            
-         next_state = IDLE;
-
-      end // READ_RESP
 
       default: next_state = IDLE;
 
