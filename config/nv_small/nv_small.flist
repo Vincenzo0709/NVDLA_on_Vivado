@@ -314,7 +314,7 @@ nvdla_hw/outdir/nv_small/vmod/rams/fpga/small_rams/nv_ram_rwsthp_60x168.v
 nvdla_hw/outdir/nv_small/vmod/rams/fpga/small_rams/nv_ram_rwsthp_60x21.v
 nvdla_hw/outdir/nv_small/vmod/rams/fpga/small_rams/nv_ram_rwsthp_80x15.v
 nvdla_hw/outdir/nv_small/vmod/rams/fpga/small_rams/nv_ram_rwsthp_80x72.v
-nvdla_hw/outdir/nv_small/vmod/rams/fpga/s
+nvdla_hw/outdir/nv_small/vmod/rams/fpga/small_rams/nv_ram_rwsthp_80x9.v
 nvdla_hw/outdir/nv_small/vmod/vlibs/AN2D4PO4.v
 nvdla_hw/outdir/nv_small/vmod/vlibs/CKLNQD12PO4.v
 nvdla_hw/outdir/nv_small/vmod/vlibs/CKLNQD12.v
