@@ -27,22 +27,22 @@ It comes in one configuration (so far):
 
 ## Build Instructions
 - First, setup the environment with:
-
-        source settings.sh \<CONFIG\> \<BOARD\>
-
+  ```
+  source settings.sh \<CONFIG\> \<BOARD\>
+  ```
 - Then build with:
-
-        make all
-        make clean
-
+  ```
+  make all
+  make clean
+  ```
 The defaults are "nv_small" and "zcu102".
 See [units](hw/units/README.md) or [xilinx](hw/xilinx/README.md) for details, or if you want to build step by step.
 
 ## Simulation
 There is also a simulation target.
-
-    make sim
-    make clean_sim
-
+```
+make sim
+make clean_sim
+```
 It builds a new block design with NVDLA accelerator and executes a predefined testbench; then opens waveforms in Vivado.
 See [Simulation](hw/xilinx/sim/README.md) for details.
