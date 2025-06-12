@@ -5,8 +5,11 @@
    <db_ref_list>
       <db_ref path="nvdla_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="\$unit_nvdla_tb_sv " />
             <top_module name="axi_vip_pkg" />
             <top_module name="glbl" />
+            <top_module name="nvdla_sim_axi_vip_0_0_pkg" />
+            <top_module name="nvdla_sim_axi_vip_1_0_pkg" />
             <top_module name="nvdla_tb" />
             <top_module name="std" />
             <top_module name="xil_common_vip_pkg" />
@@ -14,46 +17,26 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="255.781 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,017.782 ns"></ZoomEndTime>
-      <Cursor1Time time="428.781 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="881.697 ns"></ZoomEndTime>
+      <Cursor1Time time="464.001 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="352"></NameColumnWidth>
-      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+      <ValueColumnWidth column_width="101"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
-   <wvobject type="group" fp_name="group102">
-      <obj_property name="label">AXI VIP 0</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/nvdla_tb/aclk">
-         <obj_property name="ElementShortName">aclk</obj_property>
-         <obj_property name="ObjectShortName">aclk</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/nvdla_tb/aresetn">
-         <obj_property name="ElementShortName">aresetn</obj_property>
-         <obj_property name="ObjectShortName">aresetn</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/nvdla_tb/dla_intr">
-         <obj_property name="ElementShortName">dla_intr</obj_property>
-         <obj_property name="ObjectShortName">dla_intr</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/nvdla_tb/addr">
-         <obj_property name="ElementShortName">addr[15:0]</obj_property>
-         <obj_property name="ObjectShortName">addr[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/nvdla_tb/base_addr">
-         <obj_property name="ElementShortName">base_addr[15:0]</obj_property>
-         <obj_property name="ObjectShortName">base_addr[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/nvdla_tb/data">
-         <obj_property name="ElementShortName">data[31:0]</obj_property>
-         <obj_property name="ObjectShortName">data[31:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/nvdla_tb/resp">
-         <obj_property name="ElementShortName">resp[1:0]</obj_property>
-         <obj_property name="ObjectShortName">resp[1:0]</obj_property>
-      </wvobject>
+   <WVObjectSize size="16" />
+   <wvobject type="logic" fp_name="/nvdla_tb/aclk">
+      <obj_property name="ElementShortName">aclk</obj_property>
+      <obj_property name="ObjectShortName">aclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/nvdla_tb/aresetn">
+      <obj_property name="ElementShortName">aresetn</obj_property>
+      <obj_property name="ObjectShortName">aresetn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/nvdla_tb/dla_intr">
+      <obj_property name="ElementShortName">dla_intr</obj_property>
+      <obj_property name="ObjectShortName">dla_intr</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group312">
       <obj_property name="label">AXILITE-CSB</obj_property>
@@ -430,7 +413,6 @@
    <wvobject type="group" fp_name="group353">
       <obj_property name="label">CSB REGISTERS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="group" fp_name="group137">
          <obj_property name="label">MCIF REGISTER</obj_property>
          <obj_property name="DisplayName">label</obj_property>
@@ -752,5 +734,29 @@
             </wvobject>
          </wvobject>
       </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/base_addr">
+      <obj_property name="ElementShortName">base_addr[17:0]</obj_property>
+      <obj_property name="ObjectShortName">base_addr[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/resp">
+      <obj_property name="ElementShortName">resp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">resp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/wdata">
+      <obj_property name="ElementShortName">wdata[0:92][31:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[0:92][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/addr">
+      <obj_property name="ElementShortName">addr[17:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/rdata">
+      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/nvdla_tb/expctd">
+      <obj_property name="ElementShortName">expctd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">expctd[31:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -1,6 +1,16 @@
 #!/bin/bash
+#
+# Author: Vincenzo Merola <vincenzo.merola2@unina.it>
+# Description:
+#       This script downloads NVDLA nv_small sources and flattens them into an rtl/ directory:
+#       1. Clone the Github repository;
+#       2. Copy source files from the repo, flattening them in rtl/ directory;
+#       3. Copy register specification file in spec/ directory;
+#       4. Correct some syntax in source files;
+#       5. Delete the repo.
 
-export ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
+# Top directory
+export NOV_ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
 
 # Check if Vivado is in path
 if ! command -v vivado &> /dev/null; then
@@ -8,37 +18,39 @@ if ! command -v vivado &> /dev/null; then
     return 1
 fi
 
-# Configuration root directory
-export CONFIG_ROOT=${ROOT_DIR}/config
+# Configuration directory
+export NOV_CONFIG_ROOT=${NOV_ROOT_DIR}/config
 
 # Hardware directories
-export HW_ROOT=${ROOT_DIR}/hw
-export UNITS_ROOT=${HW_ROOT}/units
-export XILINX_ROOT=${HW_ROOT}/xilinx
+export NOV_HW_ROOT=${NOV_ROOT_DIR}/hw
+export NOV_UNITS_ROOT=${NOV_HW_ROOT}/units
+export NOV_XILINX_ROOT=${NOV_HW_ROOT}/xilinx
 
-# Ips directories
-export XILINX_RTL_ROOT=${XILINX_ROOT}/rtl
-export XILINX_IPS_ROOT=${XILINX_ROOT}/ips
+# Ips directory
+export NOV_XILINX_IPS=${NOV_XILINX_ROOT}/ips
 
 # Synthesis directories
-export XILINX_SYNTH_ROOT=${XILINX_ROOT}/synth
-export XILINX_SYNTH_TCL_ROOT=${XILINX_SYNTH_ROOT}/tcl
-export XILINX_SYNTH_XDC_ROOT=${XILINX_SYNTH_ROOT}/constraints
+export NOV_XILINX_SYNTH=${NOV_XILINX_ROOT}/synth
+export NOV_XILINX_SYNTH_TCL=${NOV_XILINX_SYNTH}/tcl
 
 # Simulation directories
-export XILINX_SIM_ROOT=${XILINX_ROOT}/sim
-export XILINX_SIM_TCL_ROOT=${XILINX_SIM_ROOT}/tcl
+export NOV_XILINX_SIM=${NOV_XILINX_ROOT}/sim
+export NOV_XILINX_SIM_TCL=${NOV_XILINX_SIM}/tcl
 
-# Software directories
-export SW_ROOT=${ROOT_DIR}/sw
+# Software directory
+export NOV_SW_ROOT=${NOV_ROOT_DIR}/sw
 
-# Configuration selection
+# Hardware Server Host
+export NOV_XILINX_HW_SERVER_HOST=127.0.0.1
+export NOV_XILINX_HW_SERVER_PORT=3121
+
+# Configuration and board selection
 CONFIG=$1
 BOARD=$2
 
 case ${CONFIG} in
     nv_small | "")
-        export NVDLA_CONFIG=nv_small
+        export NOV_CONFIG=nv_small
         ;;
     *)
         echo "Configuration not recognized"
@@ -48,17 +60,12 @@ esac
 
 case ${BOARD} in
     zcu102 | "")
-        export XILINX_PART_NUMBER=xczu9eg-ffvb1156-2-e
-        export XILINX_BOARD_PART=xilinx.com:zcu102:part0:3.4
-        export XILINX_HW_DEVICE=xczu9_0
-        export XILINX_BOARD=zcu102
+        export NOV_XILINX_PART_NUMBER=xczu9eg-ffvb1156-2-e
+        export NOV_XILINX_BOARD_PART=xilinx.com:zcu102:part0:3.4
+        export NOV_XILINX_BOARD=zcu102
         ;;
     *)
         echo "Board not supported"
         return 1
         ;;
 esac
-
-# Hardware Server Host
-export XILINX_HW_SERVER_HOST=127.0.0.1
-export XILINX_HW_SERVER_PORT=3121

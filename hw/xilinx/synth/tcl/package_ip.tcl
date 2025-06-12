@@ -1,14 +1,12 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
-# Description: This script packages nvdla as Vivado IP by adding $src_file_list under $top_module, 
-#              from the previously opened project (in pre_config.tcl)
+# Description: 
+#       This script packages nvdla as Vivado IP by adding $src_file_list under $top_module, 
+#       from the previously opened project (in pre_config.tcl and config.tcl)
 
-# Add files to project
+# Add files to the project
 import_files -norecurse -fileset [current_fileset] $src_file_list
 update_compile_order -fileset [current_fileset]
 set_property top ${top_module} [current_fileset]
-
-# import_files -norecurse -fileset sim_1 $src_file_list
-# update_compile_order -fileset sim_1
 
 # Suppress: WARNING: [IP_Flow 19-3833] Unreferenced file from the top module is not packaged: <...>.
 set_msg_config -id {[IP_Flow 19-3833]} -suppress

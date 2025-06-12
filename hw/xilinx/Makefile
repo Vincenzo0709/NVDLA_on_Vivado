@@ -1,27 +1,35 @@
+# Author: Vincenzo Merola <vincenzo.merola2@unina.it>
+# Description:
+#       This Makefile builds Vivado project, to package and simulate chosen NVDLA configuration
+
 # Environment check
-ifndef XILINX_ROOT
+ifndef NOV_XILINX_ROOT
 $(error Setup script settings.sh has not been sourced, aborting)
 endif
 
 # Vivado environment
 include make/environment.mk
 
+# Main target
 all: ips
 
-# Build makefile for ips and bitstream
+# Packaging makefile
 include make/build.mk
 
-# Makefile to prepare block design for simulation and run simulation
+# Makefile to prepare and run simulation
 include make/simulation.mk
 
-# Clean artifacts
+# Clean target
 clean: clean_ips clean_sim
 
+# Clean xilinx
 clean_ips:
-	rm -rf $(XILINX_IPS_ROOT)/*.xci
-	rm -rf $(XILINX_IPS_ROOT)/*/build
+	rm -rf $(NOV_XILINX_IPS)/*.xci
+	rm -rf $(NOV_XILINX_IPS)/*/build
 
+# Clean simulation
 clean_sim:
-	rm -rf $(XILINX_SIM_ROOT)/*/build
+	rm -rf $(NOV_XILINX_SIM)/*/build
+	rm -rf $(NOV_XILINX_SIM)/*/tb/reg_specification.svh
 
 .PHONY: ips clean clean_ips clean_sim

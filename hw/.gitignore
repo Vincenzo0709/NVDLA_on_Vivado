@@ -1,4 +1,6 @@
 units/*/rtl/
+units/*/spec/
 xilinx/ips/*/build/
 xilinx/sim/*/build/
+xilinx/sim/*/tb/reg_specification.svh
 *.xci

@@ -1,28 +1,33 @@
+# Author: Vincenzo Merola <vincenzo.merola2@unina.it>
+# Description:
+#       This Makefile populates units directory by executing fetch_sources.sh script for the chosen NVDLA configuration
+
 # Environment check
-ifndef ROOT_DIR
+ifndef NOV_ROOT_DIR
 $(error Setup script settings.sh has not been sourced, aborting)
 endif
 
 SHELL := /bin/bash
 
-IP_RTL_LIST=$(shell basename $(UNITS_ROOT)/*/)
-
-# Targets
+# Main target
 all: units
 
-units: $(addsuffix /rtl, $(IP_RTL_LIST))
+# Units dependency
+units: $(addsuffix /rtl, $(NOV_CONFIG))
 
 # Fetch rtl sources
 %/rtl:
-	cd $(UNITS_ROOT)/$* ; source fetch_sources.sh
-	@if [ -z "$$(ls -A $(UNITS_ROOT)/$@)" ]; then \
-		echo "[UNITS] Failed to fetch sources for $*" >&2; \
-		rm -rf rtl/; \
-		false; \
+	cd $(NOV_UNITS_ROOT)/$* ; source fetch_sources.sh
+	@if [ -z "$$(ls -A $(NOV_UNITS_ROOT)/$@)" ]; then 		\
+		echo "[UNITS] Failed to fetch sources for $*" >&2; 	\
+		rm -rf rtl/; 										\
+		false; 												\
 	fi
 
-# Remove all RTL dirs
+# Clean target
 clean:
-	rm -rf $(UNITS_ROOT)/*/rtl
+	rm -rf $(NOV_UNITS_ROOT)/*/rtl
+	rm -rf $(NOV_UNITS_ROOT)/*/spec
+	rm -rf $(NOV_UNITS_ROOT)/*/nvdla_hw
 
 .PHONY: units clean

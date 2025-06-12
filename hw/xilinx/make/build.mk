@@ -1,34 +1,34 @@
+# Author: Vincenzo Merola <vincenzo.merola2@unina.it>
+# Description:
+#       This Makefile packages the chosen NVDLA configuration.
+
 # Environment check
-ifndef XILINX_ROOT
+ifndef NOV_XILINX_ROOT
 $(error Setup script settings.sh has not been sourced, aborting)
 endif
 
-IP_LIST=$(NVDLA_CONFIG)
-
+# Main target
 all: ips
 
-# Generate ips
-IP_XCI = $(addprefix ips/, $(addsuffix .xci, $(IP_LIST)))
+# IP dependencies
+IP_XCI = $(addprefix ips/, $(addsuffix .xci, $(NOV_CONFIG)))
+
 ips: $(IP_XCI)
+ips/$(NOV_CONFIG).xci: IP_DIR=$(NOV_XILINX_IPS)/$(NOV_CONFIG)
+ips/$(NOV_CONFIG).xci: IP_BUILD_DIR=$(IP_DIR)/build
 
-# Build the IP
-ips/$(NVDLA_CONFIG).xci: IP_NAME=$(NVDLA_CONFIG)
-ips/$(NVDLA_CONFIG).xci: IP_DIR=$(XILINX_IPS_ROOT)/$(NVDLA_CONFIG)
-ips/$(NVDLA_CONFIG).xci: IP_BUILD_DIR=$(IP_DIR)/build
+# Wrapper dependency
+ips/$(NOV_CONFIG).xci: $(NOV_UNITS_ROOT)/$(NOV_CONFIG)/wrapper/
 
-# Dependency on top module
-ips/$(NVDLA_CONFIG).xci: $(UNITS_ROOT)/$(NVDLA_CONFIG)/wrapper/
-
-# Synthesis for the IP
-ips/%.xci: $(XILINX_IPS_ROOT)/%/config.tcl
-	mkdir -p $(IP_BUILD_DIR);								\
+# Synthesze IP
+ips/%.xci: $(NOV_XILINX_IPS)/%/config.tcl
+	mkdir -p $(IP_BUILD_DIR)
 	cd	   $(IP_BUILD_DIR);									\
 	export IP_DIR=$(IP_DIR);								\
-	export IP_PRJ_NAME=$(IP_NAME)_prj;						\
-	export IP_NAME=$(IP_NAME);								\
+	export IP_PRJ_NAME=$(NOV_CONFIG)_prj;					\
+	export IP_NAME=$(NOV_CONFIG);							\
 	$(XILINX_VIVADO_BATCH)                                  \
-		-source $(XILINX_IPS_ROOT)/tcl/pre_config.tcl 		\
+		-source $(NOV_XILINX_IPS)/tcl/pre_config.tcl 		\
 		-source $(IP_DIR)/config.tcl                        \
-		-source $(XILINX_IPS_ROOT)/tcl/post_config.tcl
-		
+		-source $(NOV_XILINX_IPS)/tcl/post_config.tcl
 	touch $@
