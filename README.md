@@ -28,7 +28,7 @@ It comes in one configuration (so far):
 ## Build Instructions
 - First, setup the environment with:
   ```
-  source settings.sh \<CONFIG\> \<BOARD\>
+  source settings.sh <CONFIG> <BOARD>
   ```
 - Then build with:
   ```
