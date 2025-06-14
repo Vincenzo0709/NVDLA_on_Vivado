@@ -12,15 +12,13 @@ export IP_NAME SIM_PROJECT BD
 sim: simrun
 
 # Start simulation
-simrun: simprep $(NOV_XILINX_SIM)/$(IP_NAME)/wcfg/nvdla_tb_behav.wcfg \
-													$(NOV_XILINX_SIM_TCL)/run.tcl
+simrun: simprep $(NOV_XILINX_SIM)/$(IP_NAME)/wcfg/nvdla_tb_behav.wcfg $(NOV_XILINX_SIM_TCL)/run.tcl
 	cd $(NOV_XILINX_SIM)/$(IP_NAME)/build; 										\
 	$(XILINX_VIVADO_BATCH)														\
 		-source $(NOV_XILINX_SIM_TCL)/run.tcl
 
 # Prepare simulation
-simprep: simbd $(NOV_XILINX_SIM)/$(IP_NAME)/tb/reg_specification.svh \
-													$(NOV_XILINX_SIM_TCL)/simulation.tcl
+simprep: simbd $(NOV_XILINX_SIM)/$(IP_NAME)/tb/reg_specification.svh $(NOV_XILINX_SIM_TCL)/simulation.tcl
 	cd $(NOV_XILINX_SIM)/$(IP_NAME)/build; 										\
 	$(XILINX_VIVADO_BATCH) 														\
 		-source $(NOV_XILINX_SIM_TCL)/simulation.tcl

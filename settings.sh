@@ -14,7 +14,7 @@ export NOV_ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
 
 # Check if Vivado is in path
 if ! command -v vivado &> /dev/null; then
-    echo "[Error] Can't find Vivado in PATH! Pleas add Vivado to your PATH" >&2
+    echo "[Error] Can't find Vivado in PATH! Please add Vivado to your PATH" >&2
     return 1
 fi
 

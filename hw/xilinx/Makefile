@@ -31,5 +31,6 @@ clean_ips:
 clean_sim:
 	rm -rf $(NOV_XILINX_SIM)/*/build
 	rm -rf $(NOV_XILINX_SIM)/*/tb/reg_specification.svh
+	rm -rf $(NOV_XILINX_SIM)/scripts/logs
 
 .PHONY: ips clean clean_ips clean_sim

@@ -3,4 +3,5 @@ units/*/spec/
 xilinx/ips/*/build/
 xilinx/sim/*/build/
 xilinx/sim/*/tb/reg_specification.svh
+xilinx/sim/scripts/logs/
 *.xci
