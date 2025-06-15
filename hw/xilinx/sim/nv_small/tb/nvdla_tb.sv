@@ -142,7 +142,7 @@ initial begin
     end
 
     // Write test
-    foreach (readable_offsets[i]) begin
+    // foreach (readable_offsets[i]) begin
 
         // addr = base_addr + readable_offsets[i];
         // $display("\n[READ TEST] Address: 0x%H\n", addr);
@@ -165,7 +165,7 @@ initial begin
         // // Read value print
         // $display("\t\t[READ TEST] Read: 0x%H, expected: 0x%H\n", rdata_buf, expctd);
 
-    end
+    // end
 
 end
 

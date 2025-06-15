@@ -1,6 +1,6 @@
 // Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 // Description:
-//    This module links up NVDLA_wrapper and csb2nvdla interface converter
+//       This module links up NVDLA_wrapper and csb2nvdla interface converter.
 //
 //      ┌──────────────────────────────────────────────────────────────────────────────────────────┐      
 //      │                                     NVDLA_wrapper                                        │     

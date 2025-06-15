@@ -1,9 +1,9 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description:
 #       This script extracts addresses to be used by testbench for simulation from NVDLA register python specification:
-#       1. Reads from 'units/$(NOV_CONFIG)/spec/opendla.py' specification
-#       2. Extracts readable and writable addresses
-#       3. Writes formatted output in '$(NOV_XILINX_SIM)/$(NOV_CONFIG)/tb/reg_specification.svh'
+#       1. Reads from 'units/$(NOV_CONFIG)/spec/opendla.py' specification file;
+#       2. Extracts readable and writable addresses;
+#       3. Writes formatted output in '$(NOV_XILINX_SIM)/$(NOV_CONFIG)/tb/reg_specification.svh'.
 
 import importlib.util
 import sys
@@ -52,9 +52,10 @@ def load_registers_module(path):
 
     # Load and execute the module
     spec.loader.exec_module(module)
+
     return module.registers
 
-# Extract readable/writable addresses
+# Extract writable/readable addresses
 def extract_writable_readable_offsets(registers):
 
     # Offsets dictionaries (each element is addr: RegisterInfo)
@@ -106,8 +107,8 @@ def generate_sv(writable_offsets, readable_offsets):
         f.write(
             "// This header was generated from opendla.py by reg_specification_parser.py\n" \
             "// Author: Vincenzo Merola <vincenzo.merola2@unina.it>\n" \
-            "// The idea is to declare a dictionary-like structure with addr: reg_info elements\n" \
-            "// where each reg_info elements wraps:\n"  \
+            "// The idea is to declare a dictionary-like structure with {{addr: reg_info}} elements\n" \
+            "// where each reg_info object wraps:\n"  \
             "// - Register size;\n" \
             "// - Read mask;\n" \
             "// - Write mask;\n" \
@@ -147,6 +148,7 @@ def generate_sv(writable_offsets, readable_offsets):
         f.write(("// Writable register offsets\n"))
         f.write(f"localparam int NUM_WRITABLE_REGS = {len(writable_offsets)};\n")
         f.write("bit [ADDR_WIDTH-1:0] writable_offsets [NUM_WRITABLE_REGS] = {\n")
+
         addresses = list(writable_offsets.keys())
         for i, a in enumerate(addresses):
             comma = "," if i < len(addresses)-1 else ""
@@ -162,6 +164,7 @@ def generate_sv(writable_offsets, readable_offsets):
         # };
         f.write("// Writable addresses associative array\n")
         f.write(f"reg_info_t reg_write_map [bit [ADDR_WIDTH-1:0]] = {{\n")
+        
         i = 0
         for a, r in writable_offsets.items():
             comma = "," if i < len(writable_offsets)-1 else ""
@@ -177,6 +180,7 @@ def generate_sv(writable_offsets, readable_offsets):
         f.write(("// Readable register offsets\n"))
         f.write(f"localparam int NUM_READABLE_REGS = {len(readable_offsets)};\n")
         f.write("bit [ADDR_WIDTH:0] readable_offsets [NUM_READABLE_REGS] = {\n")
+        
         addresses = list(readable_offsets.keys())
         for i, a in enumerate(addresses):
             comma = "," if i < len(addresses)-1 else ""
@@ -186,6 +190,7 @@ def generate_sv(writable_offsets, readable_offsets):
 
         f.write("// Readable addresses associative array\n")
         f.write(f"reg_info_t reg_read_map [bit [ADDR_WIDTH-1:0]] = {{\n")
+        
         i = 0
         for a, r in readable_offsets.items():
             comma = "," if i < len(readable_offsets)-1 else ""

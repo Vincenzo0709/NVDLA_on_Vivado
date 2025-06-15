@@ -1,6 +1,6 @@
 // Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 // Description:
-//    This module wraps an FSM that converts standard slave AXI-LITE interface to NVDLA CSB interface
+//       This module wraps an FSM that converts standard slave AXI-LITE interface to NVDLA CSB interface.
 //
 //      ┌───────────────────────────────────────────────────────────────────────┐      
 //      │                             axilite2csb                               │
