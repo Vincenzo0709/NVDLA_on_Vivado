@@ -36,6 +36,9 @@ hw
     │   │   │   └── nvdla_tb.sv                         # Testbench for nv_small simulation
     │   │   └── wcfg                                    # Wafeform configuration for nv_small simulation
     │   │       └── nvdla_tb_behav.wcfg 
+    │   ├── scripts
+    │   │   ├── logs                                    # Register specification script log files directory after 'make sim'
+    │   │   └── reg_specification_parser.py             # Python register specification parser script for simulations
     │   ├── tcl                                         # Tcl scripts to build simulations
     │   │   ├── block_design.tcl
     │   │   └── simulation.tcl
