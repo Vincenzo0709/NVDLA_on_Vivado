@@ -9,8 +9,6 @@ hw
 │   │   ├── rtl                                         # Sources after fetch for nv_small
 │   │   ├── spec                                        # Some needed register specification files after fetch for nv_small
 │   │   ├── wrapper                                     # AXI Wrapper for nv_small
-│   │   │   ├── axilite2csb.sv
-│   │   │   └── NVDLA_wrapper.sv
 │   │   └── fetch_sources.sh                            # Fetch script for nv_small
 │   ├── Makefile
 │   └── README.md
@@ -39,8 +37,9 @@ hw
     │   ├── scripts
     │   │   ├── logs                                    # Register specification script log files directory after 'make sim'
     │   │   └── reg_specification_parser.py             # Python register specification parser script for simulations
-    │   ├── tcl                                         # Tcl scripts to build simulations
+    │   ├── tcl                                         # Tcl scripts to build and run simulations
     │   │   ├── block_design.tcl
+    │   │   ├── run.tcl
     │   │   └── simulation.tcl
     │   └── README.md
     ├── synth

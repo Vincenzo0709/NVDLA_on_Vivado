@@ -1,10 +1,11 @@
 // Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 // Description:
 //      This is the testbench for NVDLA behavioral simulation. It executes a write/read test:
-//      1. Write on writable locations;
-//      2. Check for AXI well-done trasaction;
-//      2. Read the same location;
-//      4. Compare expected value with read value.
+//      1. Include needed 'reg_specification.svh'
+//      2. Write on writable locations;
+//      3. Check for AXI well-done trasaction;
+//      4. Read the same location;
+//      5. Compare expected value with read value.
 
 `timescale 1ns / 1ps
 
