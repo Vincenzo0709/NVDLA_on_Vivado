@@ -1,6 +1,5 @@
 
 # NVDLA_on_Vivado
-
 Vivado build for NVDLA.
 With this project you can create a Vivado IP from NVDLA accelerator Github hardware repository, just by launching a few commands.
 

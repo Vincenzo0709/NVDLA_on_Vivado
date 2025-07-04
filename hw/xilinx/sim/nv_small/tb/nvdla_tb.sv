@@ -99,7 +99,7 @@ initial begin
     // Write test
     foreach (wdata[i]) begin
 
-        // Address and masks (not necessarily read and write mask match)
+        // Address and masks (not necessarily read and write masks match)
         addr = base_addr + writable_offsets[i];
         write_mask = reg_write_map[addr].write_mask;
         read_mask = reg_write_map[addr].read_mask;
@@ -138,35 +138,7 @@ initial begin
             $fatal("[WRITE TEST] Mismatch at 0x%H.\n\tRead: 0x%H, expected: 0x%H\n", addr, rdata_buf, read_expctd);
         end
 
-        
-
     end
-
-    // Write test
-    // foreach (readable_offsets[i]) begin
-
-        // addr = base_addr + readable_offsets[i];
-        // $display("\n[READ TEST] Address: 0x%H\n", addr);
-
-        // expctd = reg_read_map[addr].reset_value;
-        // master_agent.AXI4LITE_READ_BURST((addr >> 2), 0, rdata_buf, resp);
-
-        // // Write response code assert
-        // assert(resp[1:0] == RESP_CODES.first())
-        //     else begin
-        //         $fatal("[READ TEST] Read error at 0x%H.\n\t\tResponse code was: %2b, expected: %2b (OKAY)\n", addr, resp, RESP_CODES.first());
-        //     end
-
-        // // Register expected content assert
-        // assert(expctd == rdata_buf)
-        //     else begin
-        //         $fatal("[READ TEST] Mismatch at 0x%H.\n\t\tValue: 0x%H, expected: 0x%H\n", addr, rdata_buf, expctd);
-        //     end
-
-        // // Read value print
-        // $display("\t\t[READ TEST] Read: 0x%H, expected: 0x%H\n", rdata_buf, expctd);
-
-    // end
 
 end
 

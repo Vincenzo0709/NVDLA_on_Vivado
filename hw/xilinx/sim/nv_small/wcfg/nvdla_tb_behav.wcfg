@@ -17,15 +17,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,359.906 ns"></ZoomEndTime>
-      <Cursor1Time time="464.001 ns"></Cursor1Time>
+      <ZoomStartTime time="84,740.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="90,138.136 ns"></ZoomEndTime>
+      <Cursor1Time time="500,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="352"></NameColumnWidth>
-      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="14" />
    <wvobject type="logic" fp_name="/nvdla_tb/aclk">
       <obj_property name="ElementShortName">aclk</obj_property>
       <obj_property name="ObjectShortName">aclk</obj_property>
@@ -752,13 +752,5 @@
    <wvobject type="array" fp_name="/nvdla_tb/addr">
       <obj_property name="ElementShortName">addr[17:0]</obj_property>
       <obj_property name="ObjectShortName">addr[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/nvdla_tb/rdata">
-      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/nvdla_tb/expctd">
-      <obj_property name="ElementShortName">expctd[31:0]</obj_property>
-      <obj_property name="ObjectShortName">expctd[31:0]</obj_property>
    </wvobject>
 </wave_config>

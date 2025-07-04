@@ -70,16 +70,17 @@ def extract_writable_readable_offsets(registers):
             reg = space_regs[reg_name]
             addr = reg.get('addr')
 
-            # TODO: some addresses are in reg specification but not actually in nvdla rtl
+            # TODO 1: some addresses are in reg specification but not actually in nvdla rtl
+            # TODO 2: for now selecting only 0xFFFFFFFF masks, as other masks are not reliable enough from register specification
             if 0x2000 <= addr < 0xE000:
 
                 # Check fields for read/write permissions
-                if reg.get('read_mask') != 0x0:
+                if reg.get('read_mask') == 0xFFFFFFFF:
                     
                     register = RegisterInfo(reg)
                     readable_offsets[addr] = register
 
-                    if reg.get('write_mask') != 0x0:
+                    if reg.get('write_mask') == 0xFFFFFFFF:
                         
                         writable_offsets[addr] = register
 
