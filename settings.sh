@@ -40,6 +40,9 @@ export NOV_XILINX_SIM_TCL=${NOV_XILINX_SIM}/tcl
 # Software directory
 export NOV_SW_ROOT=${NOV_ROOT_DIR}/sw
 
+# Virtual Platform directory
+export NOV_VP_ROOT=${NOV_ROOT_DIR}/vp
+
 # Hardware Server Host
 export NOV_XILINX_HW_SERVER_HOST=127.0.0.1
 export NOV_XILINX_HW_SERVER_PORT=3121
