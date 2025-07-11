@@ -8,7 +8,7 @@ $(error Setup script settings.sh has not been sourced, aborting)
 endif
 
 # Main targets
-all: hw sw
+all: hw sw vp
 
 # Hardware build
 hw: xilinx
@@ -19,6 +19,7 @@ xilinx: units
 units:
 	$(MAKE) -C $(NOV_UNITS_ROOT)
 
+# Simulation build
 sim: 
 	$(MAKE) -C $(NOV_XILINX_ROOT) sim
 
@@ -35,6 +36,12 @@ clean:
 	$(MAKE) -C $(NOV_UNITS_ROOT) clean
 	$(MAKE) -C $(NOV_XILINX_ROOT) clean
 	$(MAKE) -C $(NOV_SW_ROOT) clean
+	$(MAKE) -C $(NOV_VP_ROOT) clean
+
+clean_hw: clean_xilinx clean_units
+
+clean_units:
+	$(MAKE) -C $(NOV_UNITS_ROOT) clean
 
 clean_xilinx:
 	$(MAKE) -C $(NOV_XILINX_ROOT) clean
@@ -48,4 +55,4 @@ clean_sw:
 clean_vp:
 	$(MAKE) -C $(NOV_VP_ROOT) clean
 
-.PHONY: hw sw xilinx units sim clean clean_xilinx clean_sim clean_sw clean_vp
+.PHONY: hw sw xilinx units sim sw vp clean clean_hw clean_units clean_xilinx clean_sim clean_sw clean_vp

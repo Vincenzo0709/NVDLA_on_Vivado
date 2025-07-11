@@ -2,21 +2,18 @@
 #
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description:
-#       This script downloads NVDLA nv_small sources and flattens them into an rtl/ directory:
-#       1. Clone the Github repository;
-#       2. Copy source files from the repo, flattening them in rtl/ directory;
-#       3. Copy register specification file in spec/ directory;
-#       4. Correct some syntax in source files;
-#       5. Delete the repo.
-
-# Top directory
-export NOV_ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
+#       This script prepares the environment:
+#       1. Define all environment variabiles;
+#       2. Select NVDLA hw configuration;
+#       3. Select implementation board.
 
 # Check if Vivado is in path
 if ! command -v vivado &> /dev/null; then
-    echo "[Error] Can't find Vivado in PATH! Please add Vivado to your PATH" >&2
-    return 1
+    echo "[WARNING] Can't find Vivado in PATH! Please add Vivado to your PATH" >&2
 fi
+
+# Top directory
+export NOV_ROOT_DIR="$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )"
 
 # Configuration directory
 export NOV_CONFIG_ROOT=${NOV_ROOT_DIR}/config
