@@ -1,6 +1,6 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description: 
-#       This script packages nvdla as Vivado IP by adding $src_file_list under $top_module, 
+#       This script packages NVDLA accelerator as Vivado IP by adding $src_file_list under $top_module, 
 #       from the previously opened project (in pre_config.tcl and config.tcl)
 
 # Add files to the project

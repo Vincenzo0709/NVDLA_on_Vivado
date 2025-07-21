@@ -2,7 +2,7 @@
 Here are the steps to download NVDLA VP Docker container image and how to use it.<br>
 Tested on Ubuntu 16.04, with 4.15.0 kernel.
 
-## Installation
+## Docker runtime installation
 Install necessary tools for GPG keys management:
 ```
 sudo apt-get update
@@ -43,7 +43,7 @@ To verify that installation ended successfully:
 sudo docker run hello-world
 ```
 
-## Image download
+## Container image download
 Download the official NVDLA VP container image from DockerHub (link [here](https://hub.docker.com/r/nvdla/vp)):
 ```
 sudo docker pull nvdla/vp

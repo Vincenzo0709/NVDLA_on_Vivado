@@ -1,6 +1,6 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description:
-#       This script prepares simulation in Vivado.
+#       This script prepares simulation properties in Vivado.
 
 open_project $::env(SIM_PROJECT)
 

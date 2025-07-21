@@ -30,8 +30,8 @@
 
 LOCAL_DIR := $(GET_LOCAL_DIR)
 
-MODULE_CC := gcc-4.8
-MODULE_CPP := g++-4.8
+MODULE_CC := gcc
+MODULE_CPP := g++
 MODULE_LD := ld
 
 NVDLA_SRC_FILES := \

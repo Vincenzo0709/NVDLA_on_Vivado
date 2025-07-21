@@ -1,9 +1,18 @@
 # Hw directory
-This is the hw directory.
-In [units/](units/) there are rtl sources, in [xilinx/](xilinx/) there is the full Vivado project.
+Tested on Ubuntu 22.04.4.
 
+This directory contains all needed to synthesize, package or simulate NVDLA accelerator in Vivado:
+- In [configs/](configs/) there are the sources flilelists, for each configuration;
+- In [units/](units/) are fetched rtl sources sets;
+- In [xilinx/](xilinx/) there is the full Vivado project.
+
+## Overview
 ```
 hw
+├── configs
+│   ├── nv_small
+│   │   └── nv_small.flist                              # nv_small configuration filelist
+│   └── README.md
 ├── units
 │   ├── nv_small
 │   │   ├── rtl                                         # Sources after fetch for nv_small
@@ -28,14 +37,14 @@ hw
     │   └── simulation.mk
     ├── sim
     │   ├── nv_small
-    │   │   ├── build                                   # Vivado nv_small simulation project after 'make sim'
+    │   │   ├── build                                   # Vivado nv_small simulation project after build
     │   │   ├── tb
     │   │   │   ├── reg_specification.svh               # Register specification for nv_small simulation
     │   │   │   └── nvdla_tb.sv                         # Testbench for nv_small simulation
     │   │   └── wcfg                                    # Wafeform configuration for nv_small simulation
     │   │       └── nvdla_tb_behav.wcfg 
     │   ├── scripts
-    │   │   ├── logs                                    # Register specification script log files directory after 'make sim'
+    │   │   ├── logs                                    # Register specification script log files directory after build
     │   │   └── reg_specification_parser.py             # Python register specification parser script for simulations
     │   ├── tcl                                         # Tcl scripts to build and run simulations
     │   │   ├── block_design.tcl

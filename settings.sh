@@ -34,8 +34,11 @@ export NOV_XILINX_SYNTH_TCL=${NOV_XILINX_SYNTH}/tcl
 export NOV_XILINX_SIM=${NOV_XILINX_ROOT}/sim
 export NOV_XILINX_SIM_TCL=${NOV_XILINX_SIM}/tcl
 
-# Software directory
+# Software directories
 export NOV_SW_ROOT=${NOV_ROOT_DIR}/sw
+export NOV_SW_UMD=${NOV_SW_ROOT}/umd
+export NOV_SW_KMD=${NOV_SW_ROOT}/kmd
+export NOV_SW_TOOLS=${NOV_SW_ROOT}/tools
 
 # Virtual Platform directory
 export NOV_VP_ROOT=${NOV_ROOT_DIR}/vp

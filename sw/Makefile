@@ -1,52 +1,71 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description:
-#		This Makefile builds NVDLA driver and runtime application. 
-#		1. Compile NVDLA compiler;
-#		2. Compile KMD;
-#		3. Compile UMD.
-#
-# Necessary tools:
-# - gcc-4.8
-# - g++-4.8
+#		This Makefile builds NVDLA drivers and runtime application. 
+#		1. Compile kernel and toolchain with buildroot;
+#		2. Compile NVDLA compiler;
+#		3. Compile KMD;
+#		4. Compile UMD.
 
-# Arm64 toolchain variables needed for runtime build
-TOOLCHAIN_DIR := $(NOV_SW_ROOT)/tools/ext-toolchain/bin
-TOOLCHAIN_PREFIX := $(TOOLCHAIN_DIR)/aarch64-linux-gnu-
-TOOLCHAIN_CHECK := $(TOOLCHAIN_DIR)/aarch64-linux-gnu-gcc
+# Environment check
+ifndef NOV_ROOT_DIR
+$(error Setup script settings.sh has not been sourced, aborting)
+endif
 
-# Linux kernel image variable needed for kmd build
-KERNEL_DIR := $(NOV_SW_ROOT)/tools/buildroot/output/build/linux-4.13.3/
+# Buildroot path
+BUILDROOT_DIR := $(NOV_SW_TOOLS)/buildroot
+
+# Arm64 toolchain needed for runtime build
+TOOLCHAIN_DIR := $(BUILDROOT_DIR)/../../../../buildroot/output/host/
+TOOLCHAIN_PREFIX := $(TOOLCHAIN_DIR)/bin/aarch64-linux-gnu-
+TOOLCHAIN_CHECK := $(TOOLCHAIN_DIR)/bin/aarch64-linux-gnu-gcc
+
+# Linux kernel image needed for kmd build
+KERNEL_DIR := $(BUILDROOT_DIR)/output/build/linux-4.13.3
 
 # Main targets
 all: kmd umd
 
-# KMD target
+# KMD compilation
 kmd: $(KERNEL_DIR) $(TOOLCHAIN_CHECK)
-	cd kmd/ 							\
-	export KDIR=$<;						\
-	export ARCH=arm64;					\
-	export CROSS_COMPILE=$(word 2, $^);	\
-	$(MAKE)
+	export KDIR=$<;								\
+	export ARCH=arm64;							\
+	export CROSS_COMPILE=$(TOOLCHAIN_PREFIX);	\
+	$(MAKE) -C kmd/
 
-# UMD targets
+# UMD compilation
 umd: compiler runtime
 
 runtime: $(TOOLCHAIN_CHECK)
 	export TOP=$(NOV_SW_ROOT)/umd;						\
 	export TOOLCHAIN_PREFIX=$(TOOLCHAIN_PREFIX);		\
-	$(MAKE) -C umd/ runtime
+	$(MAKE) -C $(NOV_SW_UMD) runtime
 
 compiler:
 	export TOP=$(NOV_SW_ROOT)/umd;	\
-	$(MAKE) -C umd/ compiler
+	$(MAKE) -C $(NOV_SW_UMD) compiler
+
+# Buildroot compilation
+$(TOOLCHAIN_CHECK) $(KERNEL_DIR): $(BUILDROOT_DIR)/.done
+
+buildroot: $(BUILDROOT_DIR)/.done
+
+$(BUILDROOT_DIR)/.done:
+	$(MAKE) -C $(BUILDROOT_DIR) qemu_aarch64_virt_defconfig
+	cp $(NOV_SW_TOOLS)/utils/.config $(NOV_SW_TOOLS)/buildroot
+	$(MAKE) -C $(BUILDROOT_DIR) -j6
+	touch $@
 
 # Clean targets
-clean: clean_umd clean_kmd
+clean: clean_umd clean_kmd clean_buildroot
 
 clean_umd:
-	$(MAKE) -C umd/ clean
+	$(MAKE) -C $(NOV_SW_UMD) clean
 
 clean_kmd:
-	$(MAKE) -C kmd/ clean
+	$(MAKE) -C $(NOV_SW_KMD) clean
 
-.PHONY: compiler kmd umd clean clean_umd clean_kmd
+clean_buildroot:
+	$(MAKE) -C $(BUILDROOT_DIR) clean
+	rm -f $(BUILDROOT_DIR)/.done
+
+.PHONY: runtime compiler buildroot kmd umd clean clean_umd clean_kmd clean_buildroot

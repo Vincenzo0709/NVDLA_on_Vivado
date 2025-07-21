@@ -1,6 +1,6 @@
 # Author: Vincenzo Merola <vincenzo.merola2@unina.it>
 # Description:
-#       This Makefile populates units directory by executing fetch_sources.sh script for the chosen NVDLA configuration
+#       This Makefile populates units/ directory by executing "fetch_sources.sh" script for the chosen NVDLA configuration.
 
 # Environment check
 ifndef NOV_ROOT_DIR

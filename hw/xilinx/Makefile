@@ -19,15 +19,13 @@ include make/build.mk
 # Makefile to prepare and run simulation
 include make/simulation.mk
 
-# Clean target
-clean: clean_ips clean_sim
+# Clean targets
+clean: clean_sim clean_ips
 
-# Clean xilinx
 clean_ips:
 	rm -rf $(NOV_XILINX_IPS)/*.xci
 	rm -rf $(NOV_XILINX_IPS)/*/build
 
-# Clean simulation
 clean_sim:
 	rm -rf $(NOV_XILINX_SIM)/*/build
 	rm -rf $(NOV_XILINX_SIM)/*/tb/reg_specification.svh

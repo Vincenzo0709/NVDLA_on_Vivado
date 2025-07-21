@@ -1,5 +1,5 @@
-# Configuration directory
-This directory contains for each NVDLA configuration the whole sources set, used by fetch_sources.sh in units/.
+# Configurations directory
+This directory contains for each NVDLA configuration the whole sources set, used by *fetch_sources.sh* scripts in *units/*.
 
 | Configuration   | References         | Description                                            |
 |-----------------|--------------------|--------------------------------------------------------|

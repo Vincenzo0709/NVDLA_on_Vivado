@@ -32,13 +32,9 @@ vp:
 	$(MAKE) -C $(NOV_VP_ROOT)
 
 # Clean targets
-clean:
-	$(MAKE) -C $(NOV_UNITS_ROOT) clean
-	$(MAKE) -C $(NOV_XILINX_ROOT) clean
-	$(MAKE) -C $(NOV_SW_ROOT) clean
-	$(MAKE) -C $(NOV_VP_ROOT) clean
+clean: clean_hw clean_sw clean_vp
 
-clean_hw: clean_xilinx clean_units
+clean_hw: clean_sim clean_xilinx clean_units
 
 clean_units:
 	$(MAKE) -C $(NOV_UNITS_ROOT) clean

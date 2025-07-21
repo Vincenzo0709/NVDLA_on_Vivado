@@ -6,3 +6,4 @@
 *.mod.c
 .*.cmd
 .*.swp
+.tmp_versions/

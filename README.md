@@ -28,7 +28,7 @@ It comes in one configuration (so far):
 
 
 ## Build instructions
-Firstly, setup the environment with:
+Firstly, to setup the environment:
 ```
 source settings.sh <CONFIG> <BOARD>
 ```
@@ -37,12 +37,11 @@ source settings.sh <CONFIG> <BOARD>
 |----------|--------|
 | nv_small | zcu102 |
 
-Then build with:
+Then, to build all default targets (hardware, software and Virtual Platform):
 ```
 make all
 ```
-
-To cleanup:
+To clean up:
 ```
 make clean
 ```
@@ -50,26 +49,26 @@ make clean
 See the following if you want to build only specific targets.
 
 ### Hardware
-From the top directory
+To build, from the top directory
 ```
 make hw
 ```
 
-To cleanup:
+To clean up:
 ```
 make clean_hw
 ```
 
-See [units](hw/units/README.md) or [xilinx](hw/xilinx/README.md) for details, or if you want to build step by step.
+See [Units](hw/units/README.md) or [Xilinx](hw/xilinx/README.md) for details.
 
 ### Simulation
-From the top directory:
+To build, from the top directory:
 ```
 make sim
 ```
 It builds a new block design with NVDLA accelerator and executes a predefined testbench; then opens waveforms in Vivado.
 
-To cleanup:
+To clean up:
 ```
 make clean_sim
 ```
@@ -81,8 +80,7 @@ From the top directory:
 ```
 make sw
 ```
-
-To cleanup:
+To clean up:
 ```
 make clean_sw
 ```
@@ -94,8 +92,7 @@ From the top directory:
 ```
 make vp
 ```
-
-To cleanup:
+To clean up:
 ```
 make clean_vp
 ```
