@@ -1,0 +1,3 @@
+[submodule "sw/tools/buildroot"]
+	path = sw/tools/buildroot
+	url = https://github.com/nvdla/buildroot.git
