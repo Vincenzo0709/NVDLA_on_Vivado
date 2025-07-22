@@ -193,7 +193,7 @@ typedef enum {
 } state_t;
 
 state_t curr_state = IDLE;
-state_t next_state;
+state_t next_state = IDLE;
 
 // FSM Sequential block
 always_ff @(posedge dla_clk or negedge dla_resetn) begin
@@ -234,6 +234,9 @@ always_comb begin
    we_w = 1'h0;
    we_r = 1'h0;
 
+   // Default state to avoid latches
+   next_state = IDLE;
+   
    // FSM definition
    case (curr_state)
       
